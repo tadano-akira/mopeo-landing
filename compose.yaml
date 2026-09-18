@@ -1,0 +1,15 @@
+name: mopeo-landing
+
+services:
+  mopeo-web:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      - shared
+
+networks:
+  shared:
+    name: kaikei-django-prod_default
+    external: true
